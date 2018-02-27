@@ -1,0 +1,44 @@
+     #button-number1 {
+        background-color: crimson
+    }
+
+    #button-number2 {
+        background-color: blueviolet
+    }
+
+    #button-number3 {
+        background-color: rgb(52, 226, 43)
+    }
+
+    #button-number4 {
+        background-color: rgb(226, 43, 205)
+    }
+
+    .button-container{
+        position: relative;
+        top:50px;
+        left:70px;
+        width:310px;
+        height:100px;
+        align-content:center;
+    
+    }
+
+
+    .container{
+        width:600px;
+        height:600px;
+        background-color:darkgray;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+    #current{
+        color: deeppink;
+        
+    }
+    
+    
+    #beatThis{
+        color:darkslateblue
+    }
+
+    

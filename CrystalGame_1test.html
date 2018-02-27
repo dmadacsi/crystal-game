@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class=container> 
+    <div class=button-container>
+    
+        <button id="button-number1" class="btn btn-primary btn-lg">
+            <h1>
+                <span class="glyphicon glyphicon-question-sign"></span>
+            </h1>
+        </button>
+
+        <button id="button-number2" class="btn btn-primary btn-lg">
+            <h1>
+                <span class="glyphicon glyphicon-question-sign"></span>
+            </h1>
+        </button>
+
+        <button id="button-number3" class="btn btn-primary btn-lg">
+            <h1>
+                <span class="glyphicon glyphicon-question-sign"></span>
+            </h1>
+        </button>
+
+        <button id="button-number4" class="btn btn-primary btn-lg">
+            <h1>
+                <span class="glyphicon glyphicon-question-sign"></span>
+            </h1>
+        </button>
+
+
+
+        <h1> The number to hit is
+            <div id="beatThis">
+
+            </div>
+        </h1>
+        <h1> Your current score is
+            <div id="current">
+
+            </div>
+        </h1>
+    </div>
+</div>
+    <!-- <h1 class="text-center" id="random-number"></h1>
+    <h1 class="text-center" id="button-number1"></h1>
+    <h1 class="text-center" id="button-number2"></h1>
+    <h1 class="text-center" id="button-number3"></h1>
+    <h1 class="text-center" id="button-number4"></h1> -->
+
+    <script>
+        var runningScore = []
+        var totalSum = []
+        var resetButton
+        
+        //function startGame() { 
+
+        var randomNumber = Math.floor(Math.random() * 100 + 20);
+        console.log(randomNumber);
+        document.getElementById("beatThis").innerHTML = (randomNumber)
+
+        $(document).ready(function () {
+
+                 
+
+            var buttonNumber = Math.floor(Math.random() * 12 + 1);
+
+            $("#button-number1, #button-number2, #button-number3, #button-number4").on("click", function () {
+                var buttonNumber = Math.floor(Math.random() * 12 + 1)
+                $("#button-number").html(buttonNumber);
+                runningScore.push(buttonNumber);
+
+                var indexValue = runningScore.length;
+                var totalSum = 0;
+                for (var x = 0; x < indexValue; x++) {
+                    totalSum += runningScore[x];
+                }
+
+                if (totalSum === randomNumber) {
+                    alert("You win!");
+                }
+
+                else if (totalSum >= randomNumber) {
+                    alert("You lose!!");
+                    confirm("Play Again?")
+                    if (confim=true){
+                        location.reload();
+                    }
+                    
+                    
+                    
+                    
+                }
+                
+                
+                   
+
+                console.log(buttonNumber)
+                console.log(totalSum)
+                document.getElementById("current").innerHTML = (totalSum)
+
+
+
+
+
+
+
+
+            });
+
+
+            // <!-- 
+            //             var buttonNumber2 = Math.floor(Math.random() * 12+1);
+
+            //             $("#button-number2").on("click", function () {
+            //                 buttonNumber2 = Math.floor(Math.random() * 12+1);
+            //                 $("#button-number2").html(buttonNumber2);
+            //                 runningScore.push(buttonNumber2);
+
+            //                 var indexValue = runningScore.length;  // It's imperative that this is an array
+            //                 var totalSum = 0;
+
+            //                 for(var x = 0; x <indexValue; x++){
+            //                 totalSum += runningScore[x];
+            //                 }
+
+            //     if (totalSum === randomNumber) {
+            //              alert("You win!");
+            //             }
+
+            //              else if (totalSum >= randomNumber) {
+            //              alert("You lose!!");
+            //             }  
+
+            //                 console.log(buttonNumber2) 
+            //                 console.log(totalSum)
+            //             });
+
+
+
+
+            //             var buttonNumber3 = Math.floor(Math.random() * 12+1);
+
+            //             $("#button-number3").on("click", function () {
+            //                 buttonNumber3 = Math.floor(Math.random() * 12+1);
+
+            //                 $("#button-number3").html(buttonNumber3);
+            //                 //runningScore.push(buttonNumber3) this works well but trying below:
+            //                 runningScore.push(buttonNumber3);
+            //                 var indexValue = runningScore.length;  // It's imperative that this is an array
+            //                 var totalSum = 0;
+
+            //                 for(var x = 0; x <indexValue; x++){
+            //                 totalSum += runningScore[x];
+            //                 }
+            //                 if (totalSum === randomNumber) {
+            //              alert("You win!");
+            //             }
+
+            //              else if (totalSum >= randomNumber) {
+            //              alert("You lose!!");
+            //             }  
+
+
+            //                 console.log(buttonNumber3)
+            //                 console.log(totalSum)
+            //             });
+
+
+
+
+
+            //             var buttonNumber4 = Math.floor(Math.random() * 12+1);
+
+            //             $("#button-number4").on("click", function () {
+            //                 buttonNumber4 = Math.floor(Math.random() * 12+1);
+
+            //                 $("#button-number4").html(buttonNumber4);
+            //                 runningScore.push(buttonNumber4);
+            //                 var indexValue = runningScore.length;  // It's imperative that this is an array
+            //                 var totalSum = 0;
+
+            //                 for(var x = 0; x <indexValue; x++){
+            //                 totalSum += runningScore[x];
+            //                 }
+
+
+            //             if (totalSum === randomNumber) {
+            //              alert("You win!");
+            //             }
+
+            //              else if (totalSum >= randomNumber) {
+            //              alert("You lose!!");
+            //             }  
+
+
+            //                 console.log(buttonNumber4)
+            //                 console.log(totalSum)
+            //             }); -->
+
+            //buttonNumber4.valueOf =+runningscore;
+
+
+
+
+
+
+
+
+
+
+
+
+            //}
+            //function startGame(){
+
+
+        });
+
+    //make a function to do the click and action
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
+<style>
+    #button-number1 {
+        background-color: crimson
+    }
+
+    #button-number2 {
+        background-color: blueviolet
+    }
+
+    #button-number3 {
+        background-color: rgb(52, 226, 43)
+    }
+
+    #button-number4 {
+        background-color: rgb(226, 43, 205)
+    }
+
+    .button-container{
+        position: relative;
+        top:50px;
+        left:70px;
+        width:310px;
+        height:100px;
+        align-content:center;
+    
+    }
+
+
+    .container{
+        width:600px;
+        height:600px;
+        background-color:darkgray;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+    #current{
+        color: deeppink;
+        
+    }
+    
+    
+    #beatThis{
+        color:darkslateblue
+    }
+
+    
+</style>

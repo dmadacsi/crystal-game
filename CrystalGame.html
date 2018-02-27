@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="button-number1" class="btn btn-primary btn-lg">
+        <h1>
+            <span class="glyphicon glyphicon-question-sign"></span>
+        </h1>
+    </button>
+
+    <button id="button-number2" class="btn btn-primary btn-lg">
+        <h1>
+            <span class="glyphicon glyphicon-question-sign"></span>
+        </h1>
+    </button>
+
+    <button id="button-number3" class="btn btn-primary btn-lg">
+        <h1>
+            <span class="glyphicon glyphicon-question-sign"></span>
+        </h1>
+    </button>
+
+    <button id="button-number4" class="btn btn-primary btn-lg">
+        <h1>
+            <span class="glyphicon glyphicon-question-sign"></span>
+        </h1>
+    </button>
+
+    
+
+<h1> the number to beat is</h1>
+<div id= "beatThis">
+
+</div>
+<h1> current score </h1>
+<div id ="current">
+
+</div>
+
+    <!-- <h1 class="text-center" id="random-number"></h1>
+    <h1 class="text-center" id="button-number1"></h1>
+    <h1 class="text-center" id="button-number2"></h1>
+    <h1 class="text-center" id="button-number3"></h1>
+    <h1 class="text-center" id="button-number4"></h1> -->
+
+    <script>
+        var runningScore = []
+        var totalSum=[]
+
+        var randomNumber = Math.floor(Math.random() * 100+20);
+        console.log(randomNumber);
+        document.getElementById("beatThis").innerHTML=(randomNumber)
+
+        $(document).ready(function () {
+            //function startGame() {
+            // function startGame() {     
+
+            var buttonNumber1 = Math.floor(Math.random() * 12+1);
+
+            $("#button-number1").on("click", function () {
+                var buttonNumber1 = Math.floor(Math.random() * 12+1)
+                $("#button-number1").html(buttonNumber1);
+                runningScore.push(buttonNumber1);
+                
+                var indexValue = runningScore.length;  // It's imperative that this is an array
+                var totalSum = 0;
+                for(var x = 0; x <indexValue; x++){
+                totalSum += runningScore[x];
+                }
+
+    if (totalSum === randomNumber) {
+             alert("You win!");
+            }
+
+             else if (totalSum >= randomNumber) {
+             alert("You lose!!");
+            }  
+
+             //.push and a   
+             console.log(buttonNumber1)
+            console.log(totalSum)
+            });
+            
+
+
+            var buttonNumber2 = Math.floor(Math.random() * 12+1);
+
+            $("#button-number2").on("click", function () {
+                buttonNumber2 = Math.floor(Math.random() * 12+1);
+                $("#button-number2").html(buttonNumber2);
+                runningScore.push(buttonNumber2);
+                
+                var indexValue = runningScore.length;  // It's imperative that this is an array
+                var totalSum = 0;
+
+                for(var x = 0; x <indexValue; x++){
+                totalSum += runningScore[x];
+                }
+
+    if (totalSum === randomNumber) {
+             alert("You win!");
+            }
+
+             else if (totalSum >= randomNumber) {
+             alert("You lose!!");
+            }  
+
+                console.log(buttonNumber2) 
+                console.log(totalSum)
+            });
+            
+          
+
+
+            var buttonNumber3 = Math.floor(Math.random() * 12+1);
+
+            $("#button-number3").on("click", function () {
+                buttonNumber3 = Math.floor(Math.random() * 12+1);
+                
+                $("#button-number3").html(buttonNumber3);
+                //runningScore.push(buttonNumber3) this works well but trying below:
+                runningScore.push(buttonNumber3);
+                var indexValue = runningScore.length;  // It's imperative that this is an array
+                var totalSum = 0;
+
+                for(var x = 0; x <indexValue; x++){
+                totalSum += runningScore[x];
+                }
+                if (totalSum === randomNumber) {
+             alert("You win!");
+            }
+
+             else if (totalSum >= randomNumber) {
+             alert("You lose!!");
+            }  
+
+
+                console.log(buttonNumber3)
+                console.log(totalSum)
+            });
+            
+
+
+
+
+            var buttonNumber4 = Math.floor(Math.random() * 12+1);
+
+            $("#button-number4").on("click", function () {
+                buttonNumber4 = Math.floor(Math.random() * 12+1);
+
+                $("#button-number4").html(buttonNumber4);
+                runningScore.push(buttonNumber4);
+                var indexValue = runningScore.length;  // It's imperative that this is an array
+                var totalSum = 0;
+
+                for(var x = 0; x <indexValue; x++){
+                totalSum += runningScore[x];
+                }
+
+
+            if (totalSum === randomNumber) {
+             alert("You win!");
+            }
+
+             else if (totalSum >= randomNumber) {
+             alert("You lose!!");
+            }  
+
+
+                console.log(buttonNumber4)
+                console.log(totalSum)
+            });
+            
+            //buttonNumber4.valueOf =+runningscore;
+           
+            
+            //document.getElementById("current").innerHTML = totalSum;
+
+             
+
+            
+            
+
+
+
+
+        //}
+            //function startGame(){
+
+            //}
+        });
+    
+    //make a function to do the click and action
+        
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
